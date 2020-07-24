@@ -4,15 +4,16 @@ function Name()
 	$error = "";
 	$name = "";
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	if (isset($_GET['sname'])) 
 	{
-  		if (empty($_POST["sname"])) 
+		$name=$_GET['sname'];
+  		if (empty($name)) 
   		{
     		$error = "Invalid";
   		}
   		else 
   		{
-    		$name =test_input($_POST["sname"] );
+    		$name =$_GET["sname"] ;
     
     		if (!preg_match("/^[a-zA-Z ]*$/",$name ) )
     		{
@@ -28,14 +29,6 @@ function Name()
     	echo $name;
 	else
   		echo "Invalid";
-
-	function test_input($data) 
-	{
-  		$data = trim($data);
-  //$data = stripslashes($data);
-  		return $data;
-	}
-
 
 }
 
