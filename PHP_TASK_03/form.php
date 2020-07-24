@@ -1,40 +1,44 @@
 <?php
 function Name()
 {
-$error = "";
-$name = "";
+	$error = "";
+	$name = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["sname"])) 
-  {
-    $error = "Invalid";
-  }
-  else 
-  {
-    $name = test_input($_POST["sname"] );
+	if ($_SERVER["REQUEST_METHOD"] == "POST") 
+	{
+  		if (empty($_POST["sname"])) 
+  		{
+    		$error = "Invalid";
+  		}
+  		else 
+  		{
+    		$name =test_input($_POST["sname"] );
     
-    if (!preg_match("/^[a-zA-Z ]*$/",$name ) )
-    {
-      $error = "Invalid";
-    }
-    if (strlen($name) < 2)
-    {
-      $error = "Invalid";
-    }
-  }
+    		if (!preg_match("/^[a-zA-Z ]*$/",$name ) )
+    		{
+      			$error = "Invalid";
+    		}
+    		if (strlen($name) < 2)
+    		{
+      			$error = "Invalid";
+    		}
+  		}
+	}
+	if($error == "")
+    	echo $name;
+	else
+  		echo "Invalid";
+
+	function test_input($data) 
+	{
+  		$data = trim($data);
+  //$data = stripslashes($data);
+  		return $data;
+	}
+
+
 }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  return $data;
-}
-
-if($error == "")
-    echo $name;
-else
-  echo "Invalid";
-}
 
 function Email()
 {
@@ -66,7 +70,7 @@ function Gender()
 		//at least one of them has to be seleted
 		if(isset($_GET['Submit']))
 		{
-			echo "Please select at least one gender";
+			echo " select one gender";
 		}
 	}
 }
@@ -142,7 +146,7 @@ function Degree()
 {
 	if(isset($_GET['ssc']) || isset($_GET['hsc'])|| isset($_GET['bsc']) || isset($_GET['msc']))
 		{
-			/*if(isset($_GET['ssc']))
+			if(isset($_GET['ssc']))
 			{
 				echo $_GET['ssc'];
 			}
@@ -154,7 +158,10 @@ function Degree()
 			{
 				echo $_GET['bsc'];
 			}
-			if(isset($_GET['msc']))*/
+			if(isset($_GET['msc']))
+			{
+				echo $_GET['msc'];
+			}
 		}
 		else
 		{
@@ -185,7 +192,7 @@ if (isset($_GET['up']))
 	}
 }
 
-if(isset($_GET['Submit']))
+/*if(isset($_GET['Submit']))
 {
 	if ($flag==false) 
 {
@@ -195,7 +202,7 @@ else
 {
 	echo "Successful";
 }
-}
+}*/
 }
 
 ?>
@@ -206,7 +213,7 @@ else
 </head>
 <body>
 	<form>
-		<table width="30%" align="center" border="2" cellpadding="5">
+		<table width="50%" align="center" border="2" cellpadding="5">
 			<tr>
 				<td colspan="3" align="center"><h2>PERSON PROFILE</h2></td>
 			</tr>
@@ -217,7 +224,7 @@ else
 			</tr>
 			<tr>
 				<td width="100px" height="40px"> Email </td>
-				<td ><input type="email" name="semail" ><?php Email(); ?></td>
+				<td ><input type="email" name="semail" placeholder="sample@example.com" ><?php Email(); ?></td>
 				<td width="30px"></td>
 			</tr>
 			<tr>
@@ -263,6 +270,7 @@ else
 					<input type="checkbox" name="hsc"> HSC
 					<input type="checkbox" name="bsc"> BSc.
 					<input type="checkbox" name="msc"> MSc.
+					<?php Degree(); ?>
 				</td>
 				<td width="30px"></td>
 			</tr>
@@ -280,7 +288,7 @@ else
 			</tr>
 			<tr>
 				<td width="100px" height="40px" colspan="3" align="right">
-					<input type="submit" name="" value="Submit">
+					<input type="submit" name="Submit" value="Submit">
 					<input type="reset" name="" value="Clear">
 				</td>
 			</tr>
