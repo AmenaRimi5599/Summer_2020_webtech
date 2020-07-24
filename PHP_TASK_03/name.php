@@ -4,7 +4,7 @@
   <title>Name</title>
 </head>
 <body>
-  <form method="post">
+  <form method="get">
     Name:  <input type="text" name="sname"><br>
     <input type="submit" name="Submit">
   </form>
@@ -13,38 +13,31 @@
 $error = "";
 $name = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["sname"])) 
+  if (isset($_GET['sname'])) 
   {
-    $error = "Invalid";
-  }
-  else 
-  {
-    $name = test_input($_POST["sname"] );
+    $name=$_GET['sname'];
+      if (empty($name)) 
+      {
+        $error = "Invalid";
+      }
+      else 
+      {
+        $name =$_GET["sname"] ;
     
-    if (!preg_match("/^[a-zA-Z ]*$/",$name ) )
-    {
-      $error = "Invalid";
-    }
-    if (strlen($name) < 2)
-    {
-      $error = "Invalid";
-    }
+        if (!preg_match("/^[a-zA-Z ]*$/",$name ) )
+        {
+            $error = "Invalid";
+        }
+        if (strlen($name) < 2)
+        {
+            $error = "Invalid";
+        }
+      }
   }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  return $data;
-}
-?>
-
-<?php
-if($error == "")
-    echo $name;
-else
-  echo "Invalid";
+  if($error == "")
+      echo $name;
+  else
+      echo "Invalid";
 ?>
 
 </body>
