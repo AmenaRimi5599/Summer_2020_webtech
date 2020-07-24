@@ -30,8 +30,12 @@
 
 	if(isset($_GET['sdate']))
 	{
-		$day=(int)($_GET['sdate']);
-		if($day<0 and $day>31)
+		$day=(int)$_GET['sdate'];
+		if($day>0 and $day<=31)
+		{
+			
+		}
+		else
 		{
 			$error="Invalid";
 		}
@@ -39,24 +43,32 @@
 	}
 	if(isset($_GET['smonth']))
 	{
-		$month=(int)($_GET['smonth']);
-		if($month<0 and $month>12)
+		$month=(int)$_GET['smonth'];
+		if($month>0 and $month<=12)
+		{
+			
+		}
+		else
 		{
 			$error="Invalid";
 		}
 	}
 	if(isset($_GET['syear']))
 	{
-		$year=(int)($_GET['syear']);
-		if($year<1900 and $year>2016)
+		$year=(int)$_GET['syear'];
+		if($year>=1900 and $year<=2016)
+		{
+			
+		}
+		else
 		{
 			$error="Invalid";
 		}
 	}
 	
-	if(isset($_GET['Submit']))
-	{
-		if($error == "")
+
+
+	if($error == "")
 	{
 		echo $day."<br>";
 		echo $month."<br>";
@@ -66,7 +78,7 @@
 	{
 		echo "Invalid";
 	}
-	}
+	
 
 ?>
 </body>
