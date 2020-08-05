@@ -1,3 +1,7 @@
+<?php
+  $gender=$_COOKIE['gender'];
+  $dateOfBirth=$_COOKIE['day']."/".$_COOKIE['month']."/".$_COOKIE['year'];
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +12,10 @@
  <tr >
    <td colspan="2" width="80%"><h2>Xcompany</h2>
      <ul align="right">
-       <a href="home.php">Home</a>|
-       <a href="login.php">Login</a>|
-       <a href="registration.php">Registration</a>
+      Logged in as
+       <a href="dashboard.php"><?=$_COOKIE['name']?></a>|
+       <a href="logout.php">Logout</a>|
+       
      </ul>
    </td>
  </tr>
@@ -18,12 +23,12 @@
  <tr height="400px">
   <td>
     <ul>
-      <li><a href=""> DashBoard </a></li>
-      <li><a href=""> View Profile </a></li>
-      <li><a href=""> Edit Profile </a> </li>
-      <li><a href=""> Change Profile Picture </a></li>
-      <li><a href=""> Change Password </a></li>
-      <li><a href=""> Logout </a> </li>
+      <li><a href="dashboard.php"> DashBoard </a></li>
+      <li><a href="view_profile.php"> View Profile </a></li>
+      <li><a href="edit_profile.php"> Edit Profile </a> </li>
+      <li><a href="picture.php"> Change Profile Picture </a></li>
+      <li><a href="change_password.php"> Change Password </a></li>
+      <li><a href="logout.php"> Logout </a> </li>
     </ul>
   </td>
   <td width="80%">
@@ -36,34 +41,34 @@
       <tr>
         <td>Name</td>
         <td>:</td>
-        <td>Bob</td>
+        <td><?=$_COOKIE['name']?></td>
         <td rowspan="7" align="center">
-          <img width="128" src="user.png"/>
+          <img width="128" src="a.jpg"/>
                     <br/>
-                    <a href="picture.html">Change</a>
+                    <a href="picture.php">Change</a>
         </td>
       </tr>   
       <tr><td colspan="3"><hr/></td></tr>
       <tr>
         <td>Email</td>
         <td>:</td>
-        <td>bob@aiub.edu</td>
+        <td><?=$_COOKIE['email']?></td>
       </tr>   
       <tr><td colspan="3"><hr/></td></tr>     
       <tr>
         <td>Gender</td>
         <td>:</td>
-        <td>Male</td>
+        <td><?php echo $gender?></td>
       </tr>
       <tr><td colspan="3"><hr/></td></tr>
       <tr>
         <td>Date of Birth</td>
         <td>:</td>
-        <td>19/09/1998</td>
+        <td><?php echo $dateOfBirth?></td>
       </tr>
     </table>  
         <hr/>
-        <a href="edit_profile.html">Edit Profile</a> 
+        <a href="edit_profile.php">Edit Profile</a> 
   </form>
 </fieldset>
 

@@ -1,8 +1,4 @@
-<?php
-	session_start();
 
-	//if($_SESSION['status']=="Ok")
-		?>
 <!DOCTYPE html>
 <html>
 <head>

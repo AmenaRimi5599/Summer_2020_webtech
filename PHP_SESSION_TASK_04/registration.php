@@ -1,23 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
 <body>
-	<table width="50%" border="1" cellspacing="0" cellpadding="5" align="center">
-		<tr>
-			<td width="80%" colspan="3">
-				<h2>Xcompany</h2>
-				<ul align="right">
-				
-					Logged in as<a href=""> Bob </a> |
-					<a href="login.php"> Logout </a>
-				</ul>
-			</td>
-		</tr>
+  <table border="1px" border="1" cellpadding="5" cellspacing="0" align="center">
+  <tr>
+    <td width="80%"><h2>Xcompany</h2> 
+      <ul align="right">
+        <a href="home.php">Home</a>|
+        <a href="login.php">Login</a>|
+        <a href="registration.php">Registration</a>
+      </ul>
+    </td>
+  </tr>
 
-		<tr height="400px">
-			<td width="30%">
-				<form>
-					
-<fieldset>
+  <tr height="90%">
+    <td>
+        <fieldset>
     <legend><b>REGISTRATION</b></legend>
-	<form>
+	<form action="regCheck.php" method="POST">
 		<br/>
 		<table width="100%" cellpadding="0" cellspacing="0">
 			<tr>
@@ -28,6 +30,14 @@
 			</tr>		
 			<tr><td colspan="4"><hr/></td></tr>
 			<tr>
+				<td>User Name</td>
+				<td>:</td>
+				<td><input name="username" type="text"></td>
+				<td></td>
+			</tr>
+
+			<tr><td colspan="4"><hr/></td></tr>
+			<tr>
 				<td>Email</td>
 				<td>:</td>
 				<td>
@@ -36,13 +46,7 @@
 				</td>
 				<td></td>
 			</tr>		
-			<tr><td colspan="4"><hr/></td></tr>
-			<tr>
-				<td>User Name</td>
-				<td>:</td>
-				<td><input name="username" type="text"></td>
-				<td></td>
-			</tr>		
+				
 			<tr><td colspan="4"><hr/></td></tr>
 			<tr>
 				<td>Password</td>
@@ -74,9 +78,9 @@
 				<td colspan="3">
 					<fieldset>
 						<legend>Date of Birth</legend>    
-						<input name="day" type="text" size="2" />/
-						<input name="month" type="text" size="2" />/
-						<input name="year" type="text" size="4" />
+						<input type="text" size="2" name="day"/>/
+						<input type="text" size="2" name="month" />/
+						<input type="text" size="4" name="year" />
 						<font size="2"><i>(dd/mm/yyyy)</i></font>
 					</fieldset>
 				</td>
@@ -84,17 +88,17 @@
 			</tr>
 		</table>
 		<hr/>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" name="submit">
 		<input type="reset">
 	</form>
 </fieldset>
+    </td>
+  </tr>
 
-				</form>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" colspan="2">copyright @2017</td>
-		</tr>
-	</table>
+  <tr>
+    <td align="center">copyright@2017</td>
+  </tr>
+</table>
+
 </body>
-				
+</html>

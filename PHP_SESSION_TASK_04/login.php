@@ -1,49 +1,52 @@
 <?php
-	
-	if(isset($_GET['message']))
-	{
-		echo $_GET['message'];
-	}
-	?>
-<body>
-	<table width="60%" border="1" cellspacing="0" cellpadding="5" align="center">
-		<tr>
-			<td width="80%" colspan="3">
-				<h2>Xcompany</h2>
-				<ul align="right">
-				
-					Logged in as<a href=""> Bob </a> |
-					<a href="login.php"> Logout </a>
-				</ul>
-			</td>
-		</tr>
 
-		<tr height="400px">
-			
-			<td width="80%">
-				<form action="logcheck.php" method="post">
-						<fieldset><legend>LOGIN</legend>
-								<table>
-									<tr>
-										<td>User Name:</td>
-										<td><input type="text" name="uname"></td>
-									</tr>
-									<tr>
-										<td>Password</td>
-										<td><input type="password" name="password"></td>
-									</tr>
-									<tr>
-										<td><input type="submit" name="Submit"></td>
-										<td><a href="forgot_password.php">forgot password</td>
-									</tr>
-								</table>
-						</fieldset>
-				</form>
-			</td>
-		</tr>
-		<tr>
-			<td align="center" colspan="2">copyright @2017</td>
-		</tr>
-	</table>
+  if(isset($_GET['msg'])){
+    echo $_GET['msg'];
+  }
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <table border="1px" border="1" cellpadding="5" cellspacing="0" align="center">
+  <tr>
+    <td width="90%"><h2>Xcompany</h2> 
+      <ul align="right">
+        <a href="home.php">Home</a>|
+        <a href="login.php">Login</a>|
+        <a href="registration.php">Registration</a>
+      </ul>
+    </td>
+  </tr>
+
+  <tr height="80%">
+    <td>
+      <form action="logcheck.php" method="post">
+        <fieldset width="500px">
+          <legend>LOGIN</legend>
+          <table>
+            <tr>
+              <td>User Name</td>
+              <td>: <input type="text" name="username"></td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td>: <input type="Password" name="password"></td>
+            </tr>
+          </table>
+          <hr>
+          <input type="submit" name="submit"><a href="forgotPassword.php">Forgot Password</a>
+        </fieldset>
+      </form>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">copyright@2017</td>
+  </tr>
+</table>
+
 </body>
-				
+</html>
