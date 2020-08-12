@@ -17,9 +17,9 @@
   <tr height="300px">
   	<td>
 		<ul>
-			<p><a href="staffwork_schedule.php"> Work Schedule </a></p>
+			<p><a href="staffwork_schedule.php">Staff Work Schedule </a></p>
       <p><a href="room_service.php"> Room-Service List </a></p>
-      <p><a href="staff_salary.php"> Salary </a> </p>
+      <p><a href="staff_salary.php">Staff Salary </a> </p>
       <p><a href="staff_feedback.php"> Feedback </a></p>
 		</ul>
 	</td>

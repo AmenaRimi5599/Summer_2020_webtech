@@ -21,9 +21,9 @@
       <p><a href="cook_book.php"> Cook-Book </a> </p>
       <p><a href="chef_order.php">Food Orders</a>
       <p><a href="inventory.php"> Inventory </a></p>
-      <p><a href="chefwork_schedule.php"> Work-Schedule </a></p>
-      <p><a href="chef_salary.php"> Salary </a> </p>
-      <p><a href="chef_feedback.php"> Feedback </a></p>
+      <p><a href="chefwork_schedule.php">Chef Work-Schedule </a></p>
+      <p><a href="chef_salary.php">Chef Salary </a> </p>
+      <p><a href="chef_feedback.php">Chef Feedback </a></p>
 		</ul>
 	</td>
 	<td width="60%">

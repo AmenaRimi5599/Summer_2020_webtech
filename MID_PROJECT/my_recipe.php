@@ -1,6 +1,11 @@
+<?php 
+  if(isset($_POST['picture'])){
 
+    $pic = $_POST['picture'];
+  }
+ ?>
 <!DOCTYPE html>
-<php>
+<html>
 <head>
   <title></title>
 </head>
@@ -22,36 +27,31 @@
       <p><a href="cook_book.php"> Cook-Book </a> </p>
       <p><a href="chef_order.php">Food Orders</a>
       <p><a href="inventory.php"> Inventory </a></p>
-      <p><a href="chefwork_schedule.php"> Work-Schedule </a></p>
-      <p><a href="chef_salary.php"> Salary </a> </p>
-      <p><a href="chef_feedback.php"> Feedback </a></p>
+      <p><a href="chefwork_schedule.php">Chef Work-Schedule </a></p>
+      <p><a href="chef_salary.php">Chef Salary </a> </p>
+      <p><a href="chef_feedback.php">Chef Feedback </a></p>
 		</ul>
 	</td>
 	<td width="60%">
-		<form>
+		<form action="recipe_check.php" method="post">
             <fieldset>
                 <legend>My Recipe</legend>
-            	<form>
-
             		<section align="center">
-            			<img src="s1.jpg" align="center" height="50%" width="40%">
+            			<img src="<?= $pic ?>"  align="center" height="128px" width="128px">
             			<p><input type="file" name="picture" value=""></p>
 
             		<hr/>
             		<h3>Ingredients</h3>
-            		<textarea rows="5" cols="50">
+            		<textarea rows="5" cols="50" name="ingredient">
             		</textarea>
             		<hr/>
             		<h3>Process</h3>
-            		<textarea rows="5" cols="100"> </textarea>
+            		<textarea rows="5" cols="100" name="process"> </textarea>
             		<hr/>
             		<div align="right">
-            			<input type="button" name="button" value="DONE">
+            			<input type="submit" name="submit" value="DONE">
             		</div>
             		</section>
-            		
-                    
-            	</form>
             </fieldset>
         </form>
 	</td>

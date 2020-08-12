@@ -1,3 +1,7 @@
+<?php
+  $conn = mysqli_connect('127.0.0.1', 'root', '', 'webtech');
+  $result = mysqli_query($conn, 'select * from dummytable');
+?>
 <!DOCTYPE html>
 <php>
 <head>
@@ -21,7 +25,7 @@
       <p><a href="cook_book.php"> Cook-Book </a> </p>
       <p><a href="chef_order.php">Food Orders</a>
       <p><a href="inventory.php"> Inventory </a></p>
-      <p><a href="chefwork_schedule.php"> Work-Schedule </a></p>
+      <p><a href="chefwork_schedule.php"> Chef Work-Schedule </a></p>
       <p><a href="chef_salary.php"> Chef Salary </a> </p>
       <p><a href="chef_feedback.php"> Chef Feedback </a></p>
 		</ul>
@@ -36,15 +40,13 @@
              <td>Comments</td>
              <td>Rating</td>
            </tr>
-           <?//php  while($data = mysqli_fetch_assoc($result)){ ?>
+           <?php  while($data = mysqli_fetch_assoc($result)){ ?>
            <tr>
-             <td><?//php echo $data['itemName'] ?></td>
-             <td><?//php echo $data['picture'] ?></td>
-             <td><?//php echo $data['detail'] ?></td>
-             <!--<td><?//php echo $data['detail'] ?></td>
-             <td><?//php echo $data['detail'] ?></td>-->
+             <td><?php echo $data['Topic'] ?></td>
+             <td><?php echo $data['Comments'] ?></td>
+             <td><?php echo $data['Rating'] ?></td>
            </tr>
-           <?//php } ?>
+           <?php } ?>
         </table>      
     	</form>
     </fieldset>

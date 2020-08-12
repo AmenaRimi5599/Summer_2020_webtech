@@ -1,3 +1,7 @@
+<?php
+  $conn = mysqli_connect('127.0.0.1', 'root', '', 'webtech');
+  $result = mysqli_query($conn, 'select * from cheforder');
+?>
 <!DOCTYPE html>
 <php>
 <head>
@@ -21,9 +25,9 @@
       <p><a href="cook_book.php"> Cook-Book </a> </p>
       <p><a href="chef_order.php">Food Orders</a>
       <p><a href="inventory.php"> Inventory </a></p>
-      <p><a href="chefwork_schedule.php"> Work-Schedule </a></p>
-      <p><a href="chef_salary.php"> Salary </a> </p>
-      <p><a href="chef_feedback.php"> Feedback </a></p>
+      <p><a href="chefwork_schedule.php"> Chef Work-Schedule </a></p>
+      <p><a href="chef_salary.php">Chef Salary </a> </p>
+      <p><a href="chef_feedback.php">Chef Feedback </a></p>
 		</ul>
 	</td>
 	<td width="60%">
@@ -36,15 +40,15 @@
              <td>Quantity</td>
              <td>Approx. Time</td>
            </tr>
-           <?//php  while($data = mysqli_fetch_assoc($result)){ ?>
+           <?php  while($data = mysqli_fetch_assoc($result)){ ?>
            <tr>
-             <td><?//php echo $data['itemName'] ?></td>
-             <td><?//php echo $data['picture'] ?></td>
-             <td><?//php echo $data['detail'] ?></td>
+             <td><?php echo $data['itemName'] ?></td>
+             <td><?php echo $data['quantity'] ?></td>
+             <td><?php echo $data['approxtime'] ?></td>
              <!--<td><?//php echo $data['detail'] ?></td>
              <td><?//php echo $data['detail'] ?></td>-->
            </tr>
-           <?//php } ?>
+           <?php } ?>
         </table>      
     	</form>
     </fieldset>

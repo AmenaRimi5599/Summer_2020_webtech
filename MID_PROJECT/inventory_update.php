@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<php>
+<html>
 <head>
   <title></title>
 </head>
@@ -30,37 +31,29 @@
     <fieldset>
       <legend>INVENTORY</legend>
     	<form>
-    		<table border="1" cellspacing="0" cellpadding="5" width="95%">
+    		<table border="0" cellspacing="5" cellpadding="5" width="95%" align="center">
            <tr>
-             <td width="150px">Product</td>
-             <td width="75px">Amount In Unit</td>
-             <td width="75px">Count</td>
-             <td width="85px">Unit Price</td>
-             <td width="85px">Total Cost</td>
+             <td width="200px">Product Name</td>
+             <td><input type="text" name="product" size="30%"></td>
            </tr>
-           <?//php  while($data = mysqli_fetch_assoc($result)){ ?>
            <tr>
-             <td height="150px"><?//php echo $data['itemName'] ?></td>
-             <td><?//php echo $data['picture'] ?></td>
-             <td><?//php echo $data['detail'] ?></td>
-             <td><?//php echo $data['detail'] ?></td>
-             <td><?//php echo $data['detail'] ?></td>
+             <td >Amount in Unit</td>
+             <td><input type="text" name="amount" size="30%"></td>
            </tr>
-          
-
-           <?//php } ?>
-           
            <tr>
-             <td colspan="5" height="40px" align="right">
-              <p> Product Name <input type="text" name=""></p> 
-
-            <p> amount <input type="text" name=""></p> 
-            <a href="inventory_update.php">Update Inventory</a>
-            <input type="submit" name="submit">
+             <td >Count</td>
+             <td><input type="text" name="count" size="30%"></td>
+           </tr>
+           <tr>
+            <td colspan="2">
+             <hr>
+           </td>
+           </tr>
+           <tr>
+             <td colspan="2" align="right">
+               <input type="submit" name="submit" value="update">
              </td>
-          
            </tr>
-           
         </table>      
     	</form>
     </fieldset>

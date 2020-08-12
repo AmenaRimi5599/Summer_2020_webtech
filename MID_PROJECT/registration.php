@@ -1,3 +1,138 @@
+<?php
+function Name()
+{
+	$error = "";
+	$name = "";
+
+	if (isset($_GET['name'])) 
+	{
+		$name=$_GET['name'];
+  		if (empty($name)) 
+  		{
+    		$error = "Invalid";
+  		}
+  		else 
+  		{
+    		$name =$_GET["name"] ;
+    
+    		if (!preg_match("/^[a-zA-Z ]*$/",$name ) )
+    		{
+      			$error = "Invalid";
+    		}
+    		if (strlen($name) < 2)
+    		{
+      			$error = "Invalid";
+    		}
+  		}
+	}
+	if($error == "")
+    	echo $name;
+	else
+  		echo "Invalid";
+
+}
+
+
+function Email()
+{
+	// cannot be empty
+	if(isset($_GET['email']))
+	{
+		$email=$_GET['email'];
+		//must be valid
+		if($email=="")
+		{
+			echo "Invalid Email";
+		}
+		else
+		{
+			
+		}
+	}
+}
+
+function Gender()
+{
+	if(isset($_GET['gender']))
+	{
+		$gender=$_GET['gender'];
+		echo $gender;
+	}
+	else
+	{
+		//at least one of them has to be seleted
+		if(isset($_GET['submit']))
+		{
+			echo " select one gender";
+		}
+	}
+}
+
+function DateOfBirth()
+{
+	$error="";
+	$day="";
+	$month="";
+	$year="";
+
+	if(isset($_GET['date']))
+	{
+		$day=(int)$_GET['date'];
+		if($day>0 and $day<=31)
+		{
+			
+		}
+		else
+		{
+			$error="Invalid";
+		}
+		
+	}
+	if(isset($_GET['month']))
+	{
+		$month=(int)$_GET['month'];
+		if($month>0 and $month<=12)
+		{
+			
+		}
+		else
+		{
+			$error="Invalid";
+		}
+	}
+	if(isset($_GET['year']))
+	{
+		$year=(int)$_GET['year'];
+		if($year>=1900 and $year<=2016)
+		{
+			
+		}
+		else
+		{
+			$error="Invalid";
+		}
+	}
+	
+
+
+	if($error == "")
+	{
+		/*echo $day."<br>";
+		echo $month."<br>";
+		echo $year."<br>";*/
+	}
+	else
+	{
+		echo "Invalid";
+	}
+}
+
+
+
+
+
+?>
+<!DOCTYPE Html>
 <html>
 <head>
   <title></title>
@@ -24,7 +159,7 @@
 			<tr>
 				<td>Name</td>
 				<td>:</td>
-				<td><input name="name" type="text"></td>
+				<td><input name="name" type="text"><?php Name();?></td>
 				<td></td>
 			</tr>		
 			<tr><td colspan="4"><hr/></td></tr>
@@ -53,6 +188,7 @@
 				<td>
 					<input name="email" type="text">
 					<abbr title="hint: sample@example.com"><b>i</b></abbr>
+					<?php Email();?>
 				</td>
 				<td></td>
 			</tr>		
@@ -80,6 +216,7 @@
 						<input name="gender" type="radio">Female
 						<input name="gender" type="radio">Other
 					</fieldset>
+					<?php Gender(); ?>
 				</td>
 				<td></td>
 			</tr>		
@@ -93,6 +230,7 @@
 						<input type="text" size="4" name="year" />
 						<font size="2"><i>(dd/mm/yyyy)</i></font>
 					</fieldset>
+					<?php DateOfBirth(); ?>
 				</td>
 				<td></td>
 			</tr>
