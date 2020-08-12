@@ -3,7 +3,7 @@
   $result = mysqli_query($conn, 'select * from cheforder');
 ?>
 <!DOCTYPE html>
-<php>
+<html>
 <head>
   <title></title>
 </head>

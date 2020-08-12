@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<php>
+<html>
 <head>
   <title></title>
 </head>
