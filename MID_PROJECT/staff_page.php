@@ -1,4 +1,8 @@
+<?php
+  session_start();
 
+  if($_COOKIE['status'] == "OK"){ 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,3 +37,8 @@
 
 </body>
 </html>
+<?php
+  }else{
+    header('location: login.php');
+  }
+?>

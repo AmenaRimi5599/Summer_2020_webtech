@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
             $password = $_POST['pass'];
             $query = "SELECT * FROM userinfo WHERE UserName = '$uname' AND Password = '$password'";
             $result = mysqli_query($conn, $query);
-            $i = 0;
+            
             while( $row = mysqli_fetch_assoc($result) ){
                 
                 $Cemail    = $row['Email'];
@@ -38,6 +38,9 @@ if(isset($_POST['submit'])){
                         setcookie('pass', $Cpassword, time()+3600, '/');
                         setcookie('userType', $CuserType, time()+3600, '/');
             
+                        $_SESSION['status']  = "Ok";
+                        setcookie('status', "OK", time()+3600, '/');
+                        
                         echo "Cookie set.";
                         header('location: chef_page.php');
                     }
@@ -58,11 +61,13 @@ if(isset($_POST['submit'])){
                         setcookie('pass', $Cpassword, time()+3600, '/');
                         setcookie('userType', $CuserType, time()+3600, '/');
             
+                        $_SESSION['status']  = "Ok";
+                        setcookie('status', "OK", time()+3600, '/');
                         echo "Cookie set.";
                         header('location: staff_page.php');
                     }
                 }
-                $i++;
+                
             } 
         }
     }  
