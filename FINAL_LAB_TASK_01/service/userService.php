@@ -160,5 +160,20 @@
 		}
 	}
 
+	function deleteCom($company){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "DELETE from companyinfo where id={$company['id']}";
+
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 
 ?>
