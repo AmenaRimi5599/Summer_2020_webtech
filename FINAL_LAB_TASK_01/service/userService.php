@@ -14,6 +14,20 @@
 		return $row;
 	}
 
+	function getByComID($id){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "select * from companyinfo where id={$id}";
+		$result = mysqli_query($conn, $sql);
+		$row = mysqli_fetch_assoc($result);
+		return $row;
+	}
+
+
 	function getAllUser(){
 		$conn = dbConnection();
 
@@ -106,14 +120,45 @@
 			echo "DB connection error";
 		}
 
-		$sql = "SELECT * from user_info";
+		$sql = "SELECT * from companyinfo";
 		$result = mysqli_query($conn, $sql);
-		$users = [];
+		$company = [];
 
 		while($row = mysqli_fetch_assoc($result)){
-			array_push($users, $row);
+			array_push($company, $row);
 		}
 
-		return $users;
+		return $company;
 	}
+
+	function insertCompany($company){
+		$conn = dbConnection();
+
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "insert into companyinfo values('', '{$company['company_name']}','{$company['profile_description']}', '{$company['industry']}', '{$company['website']}', '{$company['logo']}','{$company['accountid']}')";
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	function updateCom($company){
+		$conn = dbConnection();
+		if(!$conn){
+			echo "DB connection error";
+		}
+
+		$sql = "UPDATE companyinfo set company_name ='{$company['company_name']}',profile_description='{$company['profile_description']}', industry='{$company['industry']}',company_website='{$company['website']}', company_logo='{$company['logo']}',user_account_id={$company['accid']} where id={$company['id']}";
+
+		if(mysqli_query($conn, $sql)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+
 ?>
