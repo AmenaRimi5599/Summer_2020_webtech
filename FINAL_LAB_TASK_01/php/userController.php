@@ -153,5 +153,40 @@
 		}
 	}
 
+	if(isset($_POST['com_delete'])){
+
+		$com_name 	 = $_POST['company_name'];
+		$description = $_POST['description'];
+		$industry 	 = $_POST['industry'];
+		$website 	 = $_POST['website'];
+		$logo 		 = $_POST['logo'];
+		$accid 	     = $_POST['accid'];
+		$id          =$_POST['id'];
+
+
+		//if(empty($com_name) || empty($description) || empty($industry) || empty($website) || empty($logo) || empty($accid)){
+			//header('location: ../views/company_edit.php?id={$id}');
+		//}else{
+
+			$company = [
+				'company_name'   => $com_name,
+				'profile_description'=> $description,
+				'industry'   => $industry,
+				'website'    => $website,
+				'logo'       => $logo,
+				'accid'     => $accid,
+				'id'        =>$id
+			];
+
+			$status = deleteCom($company);
+
+			if($status){
+				header('location: ../views/companyInfo.php?success=done');
+			}else{
+				header('location: ../views/company_edit.php?id={$id}');
+			}
+		//}
+	}
+
 
 ?>
