@@ -35,6 +35,7 @@
 				</tr>
 				<tr>
 					<td></td>
+					<td><font color="red"><b>Are you sure want to delete ?</b></font></td>
 					<td>
 						<input type="hidden" name="id" value="<?=$user['id']?>">
 						<input type="submit" name="delete" value="Delete"> 

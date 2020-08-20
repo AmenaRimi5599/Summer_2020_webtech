@@ -34,7 +34,8 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="submit" name="submit" value="Submit"></td>
+					<td><input type="submit" name="submit" value="Submit">
+						<a href="login.php">Back</a></td>
 				</tr>
 			</table>
 		</fieldset>

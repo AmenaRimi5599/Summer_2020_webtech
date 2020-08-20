@@ -9,7 +9,8 @@
 	<title>Company List</title>
 </head>
 <body>
-	<a href="home.php">Back</a>
+	<a href="home.php">Back</a> |
+	<a href="../php/logout.php">Logout</a>
 	<h3>Company list</h3>
 
 	<table border="1">

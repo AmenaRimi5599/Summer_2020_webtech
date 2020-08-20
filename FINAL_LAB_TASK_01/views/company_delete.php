@@ -26,7 +26,7 @@
 					<td>Company Name</td>
 					<td><input type="text" name="company_name" value="<?=$company['company_name']?>"></td>
 				</tr>
-				<tr>
+				<!--<tr>
 					<td>Profile Description</td>
 					<td><input type="text" name="description" value="<?=$company['profile_description']?>"></td>
 				</tr>
@@ -41,10 +41,15 @@
 				<tr>
 					<td>Logo</td>
 					<td><p><input type="file" name="logo"></td><img height="128px" src="<?=$company['company_logo']?>"></p>
-				</tr>
+				</tr>-->
 				<tr>
 					<td>Account ID</td>
 					<td><input type="text" name="accid" value="<?=$company['user_account_id']?>"></td>
+				</tr>
+				<tr><td></td>
+					<td>
+						<font color="red"><b>Are you sure want to delete ?</b></font>
+					</td>
 				</tr>
 				<tr>
 					<td></td>
