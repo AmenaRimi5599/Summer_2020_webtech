@@ -1,5 +1,5 @@
 <?php 
-if (isset($POST['submit'])) {
+if (isset($_POST['submit'])) {
 	echo $_POST['name'];
 }
 ?>
