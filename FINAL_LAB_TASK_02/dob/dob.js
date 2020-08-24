@@ -4,7 +4,7 @@ function validateDOB()
    var Id2 = document.getElementById('id2').value;
    var Id3 = document.getElementById('id3').value;
 
-      if(Id1=="" || Id2 =="" ||Id3 =="")
+      if((Id1 =="" ) && (Id2 =="") && (Id3 ==""))
         {
           alert("Invalid Date of Birth");
           return false;
