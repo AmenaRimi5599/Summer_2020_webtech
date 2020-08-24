@@ -2,6 +2,7 @@ function validateName()
 {
 	var fname = document.getElementById('name1').value;
 	var n = fname.length;
+	var letters = /^[A-Za-z.-]+$/;
 
 	if (fname == "")
 	{
@@ -12,32 +13,17 @@ function validateName()
 	if(n < 2)
 	{
 		alert("name should be more than 2 character");
+		return false;
 	}
 
-	/*if((fname[0]>='A' && fname[0]<='Z') || (fname[0]>='a' && fname[0]<='z'))
+	if(fname.match(letters))
 	{
-		var i = 0;
+		return true;
+	}
+	else
+	{
+		alert("Invalid Name");
+		return false;
+	}
 
-				while(i< n)
-				{
-					if(fname[i]<'A' && fname[i]!=' ' && fname[i]!='.' && fname[i]!='-')
-					{
-						alert("Invalid Name");
-						break;
-					}
-					elseif (fname[i]>'Z') 
-					{
-						if(fname[i]<'a')
-						{
-							alert("Invalid Name");
-							break;
-						}
-						elseif (fname[i]>'z') {
-							alert("Invalid Name");
-							break;
-						}
-					}
-					i=i+1;
-				}
-	}*/
 }
