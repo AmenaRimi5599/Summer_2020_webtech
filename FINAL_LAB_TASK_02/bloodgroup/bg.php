@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="bg.js"></script>
 </head>
 <body>
-	<form action="bgcheck.php" onsubmit="validateBloodGroup()" method="post">
+	<form action="bgcheck.php" onsubmit="return validateBloodGroup()" method="post">
 		Blood_Group: <select name="blood_group">
 			<option id="1">A+</option>
 			<option id="2">A-</option>
