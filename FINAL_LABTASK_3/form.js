@@ -1,211 +1,121 @@
 function validate()
 {
-
-	var fname = document.getElementById('name1').value;
-  var name = false;
-	//var n = fname.length;
-	//var letters = /^[A-Za-z.-]+$/;
-
-	if (fname == "")
-	{
-		//alert("name must be filled up");
-    document.getElementById("nmsg").innerHTML="Field cannot be empty !!";
-		name = false;
-	}
+  var name1=false;
+  var userName=document.getElementById('name1').value;
+  
+  
+  if(userName=="")
+  {
+    document.getElementById('nmsg').innerHTML="Field cannot be empty";
+    name1=false;
+  }
   else
   {
-    if((fname[0]>='A' && fname[0]<='Z') || (fname[0]>='a' && fname[0]<='z'))
+    if((userName[0]>='A' && userName[0]<='Z') ||(userName[0]>='a' && userName[0]<='z'))
     {
-      if(fname.length>=2)
+      if(userName.length>=2)
       {
         var i=0;
-        while(i<fname.length)
+        while(i<userName.length)
         {
-          if(!((fname[i]>='A' && fname[i]<='Z') || (fname[i]>='a' && fname[i]<='z') || fname[i]=='.' || fname[i]=='-' ))
+          if(!((userName[i]>='A' && userName[i]<='Z') ||(userName[i]>='a' && userName[i]<='z') || userName[i]=='.' || userName[i]=='-' || userName[i]==' '))
           {
-            //alert("Invalid");
-            document.getElementById("nmsg").innerHTML="name should contain A-Z or a-z";
-            name = false;
+            document.getElementById('nmsg').innerHTML="Name can only contain A-Z, a-z, . and -";
+            name1=false;
           }
           i=i+1;
         }
-        name = true;
+        document.getElementById('nmsg').innerHTML="";
+        name1=true;
       }
       else
       {
-        //alert("name too short");
-        document.getElementById('nmsg').innerHTML="name too short";
-        name = false;
+        document.getElementById('nmsg').innerHTML="Name must contain 2 words";
+        name1=false;
       }
     }
     else
     {
-      //alert("Invalid");
-      document.getElementById('nmsg').innerHTML="Invalid";
-      name = false;
+      document.getElementById('nmsg').innerHTML="Name must start with a letter";
+      name1=false;
     }
   }
-  //return false;
-	
 
-
-
-
-	var femail = document.getElementById('email1').value;
-	//var n = femail.length;
-  var email =false;
-
-	if (femail == "")
-	{
-		//alert("email must be filled up");
+  var email=document.getElementById('email').value;
+  var email1=false;
+  if (email == "")
+  {
     document.getElementById('emsg').innerHTML="email must be filled up";
-		email = false;
-	}
-
-  var gender = false;
-  if(document.getElementById('gen1').checked) 
-  { 
-                //document.getElementById("disp").innerHTML =
-      document.getElementById("gen1").value ;
-      gender = true;
-                    //+ " radio button checked"; 
-                    //alert("Male selected");
-    } 
-    else if(document.getElementById('gen2').checked) { 
-               // document.getElementById("disp").innerHTML= 
-         document.getElementById("gen2").value;
-         gender = true; 
-                   // + " radio button checked";
-                    //alert("Female selected");   
-       } 
-    else if(document.getElementById('gen3').checked) { 
-                //document.getElementById("disp").innerHTML= 
-                     document.getElementById("gen3").value ;
-                     gender = true;
-                    //+ " radio button checked";
-                    //alert("Other selected");
-            } 
-    else { 
-
-            document.getElementById("gmsg").innerHTML="no option selected";
-            gender = false; 
-                    //= "No option selected"; 
-                    //alert("No option is selected");
-            } 
-        
-  var dob = false;
-   var Id1 = document.getElementById('id1').value;
-   var Id2 = document.getElementById('id2').value;
-   var Id3 = document.getElementById('id3').value;
-
-      if((Id1 =="" ) && (Id2 =="") && (Id3 ==""))
-        {
-          //alert("Invalid Date of Birth");
-          document.getElementById('dobmsg').innerHTML="Invalid Date Of Birth";
-          dob = false;
-        }
-        else
-        {
-          if(!(Id1>0 && Id1<31))
-           {
-            //alert("Invalid !!");
-            document.getElementById('id1').innerHTML="invalid date";
-            dob = false;
-           }
-          if(!(Id2>0 &&Id2<13))
-            {
-              //alert("Invalid !!");
-              document.getElementById('id2').innerHTML="invalid month";
-              dob = false;
-            }
-         if(!(Id3>1900 &&Id3<2016))
-           {
-             //alert("Invalid !!");
-             document.getElementById('id3').innerHTML="invalid year";
-             dob = false;
-            }
-        }
-      
-   
+    email1 = false;
+  }
+  else
+  {
+    document.getElementById('emsg').innerHTML="";
+    email1=true;
+  }
 
 
+  var gender1=false;
+  if(document.getElementById('gen1').checked || document.getElementById('gen2').checked ||document.getElementById('gen3').checked) 
+  {
+    document.getElementById('gmsg').innerHTML="" ;
+    gender1 = true;
+  }
+  else { 
+    document.getElementById("gmsg").innerHTML="no option selected";
+    gender1 = false;
+  } 
 
-            
-	var bg = document.getElementById('blood_group').value;
-  var bg1 = false;
-
-    if(bg !="")
+  var dob1=false;
+  var day=document.getElementById('id1').value;
+  var month=document.getElementById('id2').value;
+  var year=document.getElementById('id3').value;
+  if((day!="") && (month!="") && (year!=""))
+  {
+    if((day>0 && day<32) && (month>0 && month<13) && (year>1899 && year<2017))
     {
-        bg1 = true;
+      document.getElementById('dobmsg').innerHTML="";
+      dob1=true;
     }
     else
     {
-        document.getElementById('disp').innerHTML = "Value can't be empty";
-        bg = false;
+      document.getElementById('dobmsg').innerHTML="Enter a valid date";
+      dob1=false;
     }
+  }
+  else
+  {
+    document.getElementById('dobmsg').innerHTML="Field cannot be empty";
+    dob1=false;
+  }
 
-		
+  var degree1=false;
+  if(document.getElementById('deg1').checked || document.getElementById('deg2').checked || document.getElementById('deg3').checked)
+  {
+    document.getElementById('dmsg').innerHTML="";
+    degree1=true;
+  }
+  else
+  {
+    document.getElementById('dmsg').innerHTML="Please choose an option";
+    degree1=false;
+  }
 
-
-    var degree = false;
-  if(document.getElementById('deg1').checked) { 
-                
-                     document.getElementById("deg1").innerHTML="" ;
-                     degree = true;
-                     
-                    
-            } 
-  else if(document.getElementById('deg2').checked) { 
-               
-                     document.getElementById("deg2").innerHTML="";
-                     degree =true; 
-                     
-            } 
-  else if(document.getElementById('deg3').checked) { 
-               
-                     document.getElementById("deg3").innerHTML="" ;
-                     degree = true;
-                  
-            } 
-  else { 
-                
-                    //alert("No option is selected");
-                    document.getElementById('dmsg').innerHTML="no option is selected";
-                    degree = false;
-            } 
-        
-	
-		
-
-
-	//var id = document.getElementById('id2').value;
-	var pic = document.getElementById('pic1').value;
-  var picture = false;
-
-	if( pic != "")
-	{
-		//if(parseInt(id,10)>0)
-		//{
-			//return true;
-		//}
-		//else
-		//{
-			//document.getElementById('disp').innerHTML="enter valid id";
-			//return false;
-		//}
-	//}
-	//else
-	//{
-		document.getElementById('dis').innerHTML="";
-		picture = true;
-	}
+  var picture1=false;
+  var pic =document.getElementById('pic1').value;
+  if( pic != "")
+  {
+    document.getElementById('dis').innerHTML="";
+    picture1 = true;
+  }
   else
   {
     document.getElementById('dis').innerHTML="select a picture";
-    picture = false;
+    picture1 = false;
   }
 
-  if(name && email && gender && dob && degree && picture)
+
+  if(name1 && email1 && gender1 && dob1 && degree1 && picture1)
   {
     return true;
   }
@@ -215,57 +125,41 @@ function validate()
   }
 }
 
-
-
-  function removeName()
+function removerName()
+{
+  var userName =document.getElementById('name1').value;
+  if(userName!="")
   {
-    var name = document.getElementById('name1').value;
-    if(name != "")
-    {
-      document.getElementById('nmsg').innerHTML="";
-    }
+    document.getElementById('nmsg').innerHTML="";
   }
-
-  function removeEmail()
+}
+function removerEmail()
+{
+  var email =document.getElementById('email').value;
+  if(email!="")
   {
-    var email = document.getElementById('email1').value;
-    if(email != "")
-    {
-      document.getElementById('nmsg').innerHTML="";
-    }
+    document.getElementById('emsg').innerHTML="";
   }
-  function removeGender()
+}
+function removerGender()
+{
+  document.getElementById('gmsg').innerHTML="";
+}
+function removerDob()
+{
+  var day=document.getElementById('id1').value;
+  var month=document.getElementById('id2').value;
+  var year=document.getElementById('id3').year;
+  if(day!="" && month!="" && year!="")
   {
-    
-      document.getElementById('gmsg').innerHTML="";
-    
+    document.getElementById('dobmsg').innerHTML="";
   }
-  function removeDob()
-  {
-    var d = document.getElementById('id1').value;
-    var m = document.getElementById('id2').value;
-    var y = document.getElementById('id3').value;
-    if(d != "" && m != "" && y != "")
-    {
-      document.getElementById('dobmsg').innerHTML="";
-    }
-  }
-
-  function removeDegree()
-  {
-      document.getElementById('dmsg').innerHTML="";
-    
-  }
-
-   function removeProfile()
-  {
-      document.getElementById('dis').innerHTML="";
-    
-  }
-
-
-
-	
-		
-
-
+}
+function removerDegree()
+{
+  document.getElementById('dmsg').innerHTML="";
+}
+function removerPicture()
+{
+  document.getElementById('dis').innerHTML="";
+}
