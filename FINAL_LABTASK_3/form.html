@@ -1,0 +1,96 @@
+
+<html>
+<head>
+	<title>Form</title>
+	<style>table{border-collapse:collapse;}</style>
+	<script type="text/javascript" src="form.js"></script>
+</head>
+<body>
+	<form action="" onsubmit=" return validate()" method="post" enctype="multipart/form-data">
+		<table width="50%" align="center" border="2" cellpadding="5">
+			<tr>
+				<td colspan="3" align="center"><h2>PERSON PROFILE</h2></td>
+			</tr>
+			<tr>
+				<td width="100px" height="40px"> Name </td>
+				<td ><input type="text" id="name1" name="name" onkeyup="removeName()"></td>
+				<td width="150px" id="nmsg"></td>
+			</tr>
+			<tr>
+				<td width="100px" height="40px"> Email </td>
+				<td ><input type="email" id="email1" name="email" onkeyup="removeEmail()" placeholder="sample@example.com" ></td>
+				<td width="150px" id="emsg"></td>
+			</tr>
+			<tr>
+				<td width="100px" height="40px"> Gender </td>
+				<td ><input type="radio" id="gen1" onkeyup="removeGender()" name="gender"> Male
+					<input type="radio" id="gen2" onkeyup="removeGender()"  name="gender"> Female
+					<input type="radio" id="gen3" onkeyup="removeGender()"  name="gender"> Other
+					
+				</td>
+				<td width="150px" id="gmsg"></td>
+			</tr>
+			<tr>
+				<td width="100px" height="40px"> Date of Birth </td>
+				<td >
+					<input type="text" id="id1" onkeyup="removeDob()" name="day" size="3">/
+					<input type="text" id="id2" onkeyup="removeDob()" name="month" size="3">/
+					<input type="text" id="id3" onkeyup="removeDob()" name="year" size="3">
+					<i>(dd/mm/yyyy)</i>
+					
+				</td>
+				<td width="150px" id="dobmsg"></td>
+			</tr>
+			<tr>
+				<td width="100px" height="40px"> Blood Group </td>
+				<td >
+					<select id="blood_group" name="blood_group">
+						<option></option>
+						<option value="">A+</option>
+						<option value="">A-</option>
+						<option value="">B+</option>
+						<option value="">B-</option>
+						<option value="">O+</option>
+						<option value="">O-</option>
+						<option value="">AB+</option>
+						<option value="">AB-</option>
+					</select>
+					
+				</td>
+				<td width="150px" id="disp"></td>
+			</tr>
+			
+			<tr>
+				<td width="100px" height="40px"> Degree </td>
+				<td ><input type="checkbox" id="deg1" onkeyup="removeDegree()" name="ssc"> SSC
+					<input type="checkbox" id="deg2" onkeyup="removeDegree()"  name="hsc"> HSC
+					<input type="checkbox" id="deg3" onkeyup="removeDegree()"  name="bsc"> BSc.
+					
+					
+				</td>
+				<td width="150px" id="dmsg"></td>
+			</tr>
+			<tr>
+				<td width="100px" height="40px"> Photo </td>
+				<td >
+					<input type="file" name="up" value="" onkeyup="removeProfile()" placeholder="Browse">
+				
+				</td>
+				<td width="150px" id="dis"></td>
+			</tr>
+			
+			<tr>
+				<td width="100px" height="40px" colspan="3"></td>
+				
+			</tr>
+			<tr>
+				<td width="100px" height="40px" colspan="3" align="right">
+					<input type="submit"  name="submit" value="Submit">
+					<input type="reset" name="" value="Clear">
+				</td>
+			</tr>
+			
+		</table>
+	</form>
+</body>
+</html>
