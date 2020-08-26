@@ -7,8 +7,8 @@
 		}
 		else
 		{
-			echo "none";
+			header('location:gender.html');
+			//return false;
 		}
-		
 	}
 ?>
