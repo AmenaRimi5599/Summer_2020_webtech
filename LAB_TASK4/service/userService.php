@@ -82,4 +82,24 @@
 			return false;
 		}
 	}
+
+	function checkEmail($email)
+	{
+		$conn = dbConnection();
+		$sql = "select * from user_info where Email='{$email}'";
+		if(mysqli_query($conn, $sql)){
+			$result=mysqli_query($conn, $sql);
+			$user = mysqli_fetch_assoc($result);
+			if(empty($user)){
+			return false;
+			}
+			else
+			{
+				return true;
+			}
+		}else{
+			return false;
+		}
+
+	}
 ?>
