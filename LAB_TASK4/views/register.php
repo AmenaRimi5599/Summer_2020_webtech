@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><input type="button" name="button" value="Submit" onclick="f1()">
+					<td><input type="button" name="submit" value="Submit" onclick="f1()">
 						<a href="login.php" style="display: none;">Login</a>
 					</td>
 				</tr>
@@ -54,21 +54,24 @@
 		{
 			var email = document.getElementById('email').value;
 			var xhttp = new XMLHttpRequest();
-		    xhttp.open('POST', 'a.php', true);
-		    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		    xhttp.send('email='+email);
+			xhttp.open('POST', '../php/email_Check.php', true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.send('email='+email);
 
-		    xhttp.onreadystatechange = function (){
-					if(this.readyState == 4 && this.status == 200){
+			xhttp.onreadystatechange = function (){
+			if(this.readyState == 4 && this.status == 200)
+			{
 
-						if(this.responseText != ""){
-							document.getElementById('disp').innerHTML = this.responseText;
-						}else{
-							document.getElementById('disp').innerHTML = "";
-						}
-						
-					}	
+				if(this.responseText != ""){
+					document.getElementById('disp').innerHTML = this.responseText;
+				}else{
+					document.getElementById('disp').innerHTML = "";
+				}
+				
+			}	
+			
 		}
+	}
 	</script>
 </body>
 </html>
