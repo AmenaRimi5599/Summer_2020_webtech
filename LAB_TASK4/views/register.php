@@ -18,7 +18,7 @@
 </head>
 <body>
 
-	<form action="../php/regCheck.php" method="post">
+	<form action="../php/regCheck.php" method="post" >
 		<fieldset>
 			<legend>SignUp</legend>
 			<table>
@@ -28,7 +28,7 @@
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td><input type="text" id="email" name="email" onkeyup="f2()">
+					<td><input type="text" id="email" name="email" onkeyup="f2()" onblur="validateEmail()">
 					</td>
 					<td id="disp"></td>
 				</tr>
@@ -72,6 +72,26 @@
 			
 		}
 	}
+
+	function validateEmail()
+{
+	var femail = document.getElementById('email').value;
+	//var n = femail.length;
+
+	if (femail == "")
+	{
+		//alert("email must be filled up");
+		document.getElementById('disp').innerHTML="Field cannot be empty";
+		return false;
+	}
+	else
+	{
+		document.getElementById('disp').innerHTML="";
+		return true;
+	}
+	}
+
+
 	</script>
 </body>
 </html>
