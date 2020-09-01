@@ -1,6 +1,6 @@
 <?php
 
-	$name = $_POST['email'];
+	$email = $_POST['email'];
 
 	$conn = mysqli_connect('localhost', 'root', '', 'web_tech');
 	$sql= "select * from user_info where Email like '%{$email}%'";
