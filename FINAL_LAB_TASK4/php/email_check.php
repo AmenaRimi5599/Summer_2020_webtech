@@ -10,9 +10,8 @@
 		$status=checkEmail($_POST['email']);
 		if($status)
 		{
-			echo "Email is taken";
+			echo "Email is already taken";
 		}		
 	}
-
 
 ?>
