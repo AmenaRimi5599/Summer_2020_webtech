@@ -8,7 +8,7 @@
 			echo "DB connection error";
 		}
 
-		$sql = "select * from users where id={$id}";
+		$sql = "select * from user where id={$id}";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 		return $row;
@@ -21,7 +21,7 @@
 			echo "DB connection error";
 		}
 
-		$sql = "select * from users";
+		$sql = "select * from user";
 		$result = mysqli_query($conn, $sql);
 		$users = [];
 
@@ -40,7 +40,7 @@
 			echo "DB connection error";
 		}
 
-		$sql = "select * from users where username='{$user['username']}' and password='{$user['password']}'";
+		$sql = "select * from user where username='{$user['username']}' and password='{$user['password']}'";
 		$result = mysqli_query($conn, $sql);
 		$user = mysqli_fetch_assoc($result);
 
@@ -59,7 +59,7 @@
 			echo "DB connection error";
 		}
 
-		$sql = "insert into users values('', '{$user['username']}','{$user['password']}', '{$user['email']}', 'admin')";
+		$sql = "insert into user values('{$user['username']}','{$user['password']}', '{$user['email']}')";
 		if(mysqli_query($conn, $sql)){
 			return true;
 		}else{
@@ -74,7 +74,7 @@
 			echo "DB connection error";
 		}
 
-		$sql = "update users set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}' where id={$user['id']}";
+		$sql = "update user set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}' where id={$user['id']}";
 
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -82,15 +82,15 @@
 			return false;
 		}
 	}
-
 	function checkEmail($email)
 	{
 		$conn = dbConnection();
-		$sql = "select * from user_info where Email='{$email}'";
+		$sql = "select * from user where email='{$email}'";
 		if(mysqli_query($conn, $sql)){
 			$result=mysqli_query($conn, $sql);
 			$user = mysqli_fetch_assoc($result);
-			if(empty($user)){
+			if(empty($user))
+			{
 			return false;
 			}
 			else
