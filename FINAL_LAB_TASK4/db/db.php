@@ -3,7 +3,7 @@
 	$host	= "localhost";
 	$dbuser = "root";
 	$dbpass = "";
-	$dbname	= "web_tech";
+	$dbname	= "ajax";
 
 	function dbConnection(){
 		global $host;
