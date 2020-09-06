@@ -13,31 +13,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit User</title>
+	<title>Delete User</title>
 </head>
 <body>
 
 	<form action="../php/userController.php" method="post">
 		<fieldset>
-			<legend>Edit User</legend>
+			<legend>Delete User</legend>
 			<table>
 				<tr>
+					<td>Author Name</td>
+					<td><input type="text" id="name" name="name" value="<?=$user['authorname']?>"></td>
+				</tr>
+				<tr>
 					<td>Username</td>
-					<td><input type="text" name="username" value="<?=$user['username']?>"></td>
+					<td><input type="text" id="username" name="username" value="<?=$user['username']?>"></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" value="<?=$user['password']?>"></td>
+					<td><input type="password" id="password" name="password" value="<?=$user['password']?>"></td>
 				</tr>
 				<tr>
 					<td>Contact</td>
-					<td><input type="text" name="number" value="<?=$user['number']?>"></td>
+					<td><input type="text" id="number" name="number" value="<?=$user['contactnumber']?>"></td>
 				</tr>
 				<tr>
 					<td></td>
+					<td><font color="red"><b>Are you sure want to delete ?</b></font></td>
 					<td>
 						<input type="hidden" name="id" value="<?=$user['id']?>">
-						<input type="submit" name="edit" value="Update"> 
+						<input type="submit" name="delete" value="Delete"> 
 						<a href="all_users.php">Back</a>
 					</td>
 				</tr>
