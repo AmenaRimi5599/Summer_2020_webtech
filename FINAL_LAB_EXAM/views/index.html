@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ajax Example</title>
+	<title></title>
 </head>
 <body>
 
-		<h1 id="abc">Ajax Example</h1>
+		<h1 id="abc">Search Member</h1>
 
 		<form>
 			<input type="text" id="name" name="name" onkeyup="load()" /> 
@@ -21,7 +21,7 @@
 				var name = document.getElementById('name').value;
 				var xhttp = new XMLHttpRequest();
 				//xhttp.open('GET', 'abc.php?name='+name, true);
-				xhttp.open('POST', 'abc.php', true);
+				xhttp.open('POST', 'php/search.php', true);
 				xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				xhttp.send('name='+name);
 
